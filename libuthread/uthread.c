@@ -234,7 +234,9 @@ int uthread_join(uthread_t tid, int *retval) //thread waits for thread with tid
 		queue_enqueue(blockedQ,(void*)runningThread);
 		preempt_enable();
 		uthread_scheduleNewThread();
-		*retval = find2->exitValue;
+		if(find2->exitValue > 0){
+			*retval = find2->exitValue;
+		}
 	}
 	return 0;	
 }

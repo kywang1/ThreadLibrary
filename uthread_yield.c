@@ -14,16 +14,12 @@
 #include <stdlib.h>
 
 #include <uthread.h>
-int status1;
-int status2;
-int status3;
-int status4;
 
 int thread3(void* arg)
 {
 	uthread_yield();
 	printf("thread%d\n", uthread_self());
-	return 3;
+	return 0;
 }
 
 int thread2(void* arg)
@@ -31,7 +27,7 @@ int thread2(void* arg)
 	uthread_create(thread3, NULL);
 	uthread_yield();
 	printf("thread%d\n", uthread_self());
-	return 3;
+	return 0;
 }
 
 int thread1(void* arg)
@@ -40,13 +36,11 @@ int thread1(void* arg)
 	uthread_yield();
 	printf("thread%d\n", uthread_self());
 	uthread_yield();
-	return 1;
+	return 0;
 }
 
 int main(void)
 {
-	uthread_join(uthread_create(thread1, NULL), &status1);
-	printf("status1: %d\n",status1 );
-
+	uthread_join(uthread_create(thread1, NULL), NULL);
 	return 0;
 }

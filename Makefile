@@ -1,7 +1,7 @@
-# Main makefile
 # Target programs
-programs := uthread_yield.x
-	
+programs := \
+	uthread_hello.x \
+	uthread_yield.x 	
 
 # User-level thread library
 UTHREADLIB := libuthread
@@ -67,7 +67,6 @@ clean:
 	@echo "CLEAN	$(shell pwd)"
 	$(Q)$(MAKE) V=$(V) D=$(D) -C $(UTHREADPATH) clean
 	$(Q)rm -rf $(objs) $(deps) $(programs)
-	rm -f *.x *.o
 
 .PHONY: clean $(libuthread)
 

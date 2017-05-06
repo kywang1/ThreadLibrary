@@ -27,7 +27,7 @@ int hello1(void* arg)
 {
 	uthread_join(three,&status3);
 	printf("Thread1!\n");
-	return 1;
+	return 0;
 }
 
 int hello2(void* arg)

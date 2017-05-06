@@ -4,8 +4,6 @@
  * Tests the creation of a single thread and its successful return.
  */
 
-//test
-
 #include <stdio.h>
 #include <stdlib.h>
 
